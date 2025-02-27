@@ -9,35 +9,40 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>438</width>
-    <height>825</height>
+    <width>284</width>
+    <height>575</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QFrame{
+   <string notr="true">QWidget {
+    background-color: #141414;
+	font-family:Open Sans;
+}
+
+QFrame{
 	background-color:#141414;
-
 }
 
-QLabel{
-	font-size:25px;
-	font-family: &quot;Recoleta&quot;;
+QLabel{ 									/*nazwa*/
+	font-size:15px;
 	color: #ffffff;
+	background:#343434;
+	font-weight: bold;
+	
 }
 
-QLineEdit{
-	background-color: #343434;
-}
+
 
 #close_btn{
-	background-color: #141414;
+	background-color: #343434;
+	border:none;
 }
 
-#fn_bar_frame{
-	border-bottom: 1px solid #343434;
+#fn_bar_frame{										/*frame z nazwa, ikona*/
+	background:#343434;
 	border-top-left-radius: 12px;
 	border-top-right-radius: 12px;
 }
@@ -45,40 +50,106 @@ QLineEdit{
 #button_frame{
 	border-bottom-left-radius: 12px;
 	border-bottom-right-radius: 12px;
-}
-
-
-#button_frame QLineEdit{
-	background-color: #343434;
-	color: #ffffff;
 	border: none;
-	height:100px;
-	padding: 10px 5px;
-	font-size:100px;
-	font-family: &quot;Recoleta&quot;;
-	border-radius: 20px;
 }
+
 
 #button_frame QPushButton {
 	background-color: #1f1f1f;
-	color:#ffffff;
-	font-family: &quot;Recoleta&quot;;
-	font-size:50px;
-	border-radius: 50px;
-	width:100px;
-	height:100px;
+	color:#e1e1e1;
+	font-size:25px;
+	border-radius: 30px;
+	width:60px;
+	height:60px;
+	padding: 0px;
+	
+
 }
 
 #button_frame QPushButton:pressed {
-background-color: #343434;
-border-radius: 25px;
+	background-color: #343434;
+	border-radius: 12.5px;
+	
+	
+
+}
+
+#button_frame QPushButton[class=&quot;group1&quot;] {
+	background: #a4a4a4;
+	color:#343434;
+}
+
+#button_frame QPushButton[class=&quot;group2&quot;] {
+	background: #484848;
+	color:#e1e1e1;
+}
+
+#button_frame QPushButton[class=&quot;group2&quot;]:pressed {
+	background:#656565;
+}
+
+#button_frame QPushButton[class=&quot;group3&quot;] {
+	background: #d3d3d3;
+	color:#000000;
+}
+
+#button_frame QPushButton[class=&quot;group4&quot;] {
+	background: #141414;
+	color:#c3c3c3;
+	font-size:30px;
+	height:40px;
+
+
+}
+
+#button_frame QPushButton[class=&quot;group4&quot;]:pressed {
+	background-color: #343434;
+	border-radius: 20px;
+	
+
+}
+
+QLineEdit{								/*wynik m.in*/
+
+}
+
+#wynik_frame {
+	border: none;
+	background-color:#343434;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+#wynik_frame QLineEdit[class=&quot;linegroup1&quot;]{
+	background-color: #343434;
+	color: #ffffff;
+	border: none;
+	height:80px;
+	padding: 0px 10px;
+	font-size:64px;
+
+}
+
+#wynik_frame QLineEdit[class=&quot;linegroup2&quot;]{
+	background-color: #343434;
+	color: #ffffff;
+	border: none;
+	height:40px;
+	padding: 0px 10px;
+	padding-bottom:15px;
+	font-size:40px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 
 }
 
 
 </string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -91,15 +162,12 @@ border-radius: 25px;
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <property name="spacing">
-    <number>0</number>
-   </property>
-   <item row="0" column="0">
+   <item>
     <widget class="QFrame" name="fn_bar_frame">
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>50</height>
+       <height>40</height>
       </size>
      </property>
      <property name="frameShape">
@@ -131,8 +199,8 @@ border-radius: 25px;
         </property>
         <property name="maximumSize">
          <size>
-          <width>28</width>
-          <height>28</height>
+          <width>20</width>
+          <height>20</height>
          </size>
         </property>
         <property name="frameShape">
@@ -158,7 +226,7 @@ border-radius: 25px;
       <item>
        <widget class="QLabel" name="app_name">
         <property name="text">
-         <string>ML Calculator</string>
+         <string>MLCalculator</string>
         </property>
        </widget>
       </item>
@@ -198,8 +266,8 @@ border-radius: 25px;
         </property>
         <property name="iconSize">
          <size>
-          <width>28</width>
-          <height>28</height>
+          <width>20</width>
+          <height>20</height>
          </size>
         </property>
        </widget>
@@ -207,7 +275,66 @@ border-radius: 25px;
      </layout>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item>
+    <widget class="QFrame" name="wynik_frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>1+0</string>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="class" stdset="0">
+         <string>linegroup1</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="class" stdset="0">
+         <string>linegroup2</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QFrame" name="button_frame">
      <property name="maximumSize">
       <size>
@@ -221,7 +348,7 @@ border-radius: 25px;
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
+     <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,0,0">
       <property name="leftMargin">
        <number>10</number>
       </property>
@@ -234,197 +361,17 @@ border-radius: 25px;
       <property name="bottomMargin">
        <number>10</number>
       </property>
-      <property name="horizontalSpacing">
-       <number>6</number>
+      <property name="spacing">
+       <number>8</number>
       </property>
-      <item row="1" column="1">
-       <widget class="QPushButton" name="pi">
-        <property name="text">
-         <string>π</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group4</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="ac">
-        <property name="text">
-         <string>AC</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group1</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="3">
-       <widget class="QPushButton" name="plus">
-        <property name="text">
-         <string>+</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="3">
-       <widget class="QPushButton" name="minus">
-        <property name="text">
-         <string>-</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="3">
-       <widget class="QPushButton" name="equal">
-        <property name="text">
-         <string>=</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group3</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="2">
-       <widget class="QPushButton" name="dot">
-        <property name="text">
-         <string>.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="2">
-       <widget class="QPushButton" name="three">
-        <property name="text">
-         <string>3</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QPushButton" name="newton">
-        <property name="text">
-         <string>!</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group4</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="seven">
-        <property name="text">
-         <string>7</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="brackets">
-        <property name="text">
-         <string>( )</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0" colspan="2">
-       <widget class="QPushButton" name="zero">
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="power">
-        <property name="text">
-         <string>^</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group4</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
+      <item row="4" column="0">
        <widget class="QPushButton" name="one">
         <property name="text">
          <string>1</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="eight">
-        <property name="text">
-         <string>8</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QPushButton" name="five">
-        <property name="text">
-         <string>5</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QPushButton" name="two">
-        <property name="text">
-         <string>2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QPushButton" name="nine">
-        <property name="text">
-         <string>9</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="root">
-        <property name="text">
-         <string>√</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group4</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QPushButton" name="four">
-        <property name="text">
-         <string>4</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="3">
-       <widget class="QPushButton" name="multiply">
-        <property name="text">
-         <string>×</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="3">
-       <widget class="QPushButton" name="divide">
-        <property name="text">
-         <string>÷</string>
-        </property>
-        <property name="class" stdset="0">
-         <string>group2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="2">
-       <widget class="QPushButton" name="six">
-        <property name="text">
-         <string>6</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
+      <item row="1" column="2">
        <widget class="QPushButton" name="percentage">
         <property name="text">
          <string>%</string>
@@ -434,19 +381,183 @@ border-radius: 25px;
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="4">
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="enabled">
-         <bool>false</bool>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="multiply">
+        <property name="text">
+         <string>×</string>
         </property>
+        <property name="class" stdset="0">
+         <string>group2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QPushButton" name="plus">
+        <property name="text">
+         <string>+</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>group2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="root">
+        <property name="text">
+         <string>√</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>group4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="nine">
+        <property name="text">
+         <string>9</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QPushButton" name="minus">
+        <property name="text">
+         <string>-</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>group2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="power">
+        <property name="text">
+         <string>^</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>group4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="eight">
+        <property name="text">
+         <string>8</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="3">
+       <widget class="QPushButton" name="equal">
+        <property name="text">
+         <string>=</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>group3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QPushButton" name="three">
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QPushButton" name="dot">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="five">
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="brackets">
+        <property name="text">
+         <string>( )</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>group2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="six">
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="seven">
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="newton">
+        <property name="text">
+         <string>!</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>group4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pi">
+        <property name="text">
+         <string>π</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>group4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="ac">
+        <property name="text">
+         <string>AC</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>group1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="four">
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="2">
+       <widget class="QPushButton" name="zero">
         <property name="text">
          <string>0</string>
         </property>
-        <property name="frame">
-         <bool>true</bool>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QPushButton" name="two">
+        <property name="text">
+         <string>2</string>
         </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="divide">
+        <property name="text">
+         <string>÷</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>group2</string>
         </property>
        </widget>
       </item>
